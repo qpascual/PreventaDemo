@@ -204,7 +204,7 @@ Ext.define("Preventa.controller.CatalegClientController", {
     		newValue = parseInt(priceTF.getValue());
     	}
     	else {
-			newValue = "Precio";
+			newValue = null;
     	}
     	priceTF.setValue(newValue);
 		this.saveProduct(units.config._badge_page, units.config._badge_index);
@@ -217,12 +217,12 @@ Ext.define("Preventa.controller.CatalegClientController", {
     	
     	var unitsTF = this.getUnitsTextField();
     	var units = unitsTF.getValue();
-    	if(units != "Unidades"){
+    	if(units != null){
 	    	var price = price_unit * parseInt(units);
 	    	var newValue;
 	    	
 	    	if(price <= 0){
-	    		newValue = "Precio";
+	    		newValue = null;
 	    	}
 	    	else {
 	    		newValue = price;
@@ -231,7 +231,7 @@ Ext.define("Preventa.controller.CatalegClientController", {
 	    	priceTF.setValue(newValue);
     	}
     	else {
-    		priceTF.setValue("Precio");
+    		priceTF.setValue(null);
     	}
     },
     
@@ -257,7 +257,7 @@ Ext.define("Preventa.controller.CatalegClientController", {
     		newValue = parseInt(units.getValue());
     	}
     	else {
-			newValue = "Unidades";
+			newValue = null;
     	}
 		units.setValue(newValue);
 		this.calculatePrice();
@@ -269,7 +269,7 @@ Ext.define("Preventa.controller.CatalegClientController", {
     	var newValue;
     	if(units.getValue() != 'Unidades'){
     		if(parseInt(units.getValue()) == 1){
-    			newValue = "Unidades"
+    			newValue = null;
     		}
     		else {
     			newValue = parseInt(units.getValue()) - 1;
@@ -283,7 +283,7 @@ Ext.define("Preventa.controller.CatalegClientController", {
     onAddUnitButtonTap: function(){
     	var units = this.getUnitsTextField();
     	var newValue;
-    	if(units.getValue() == 'Unidades'){
+    	if(units.getValue() == null){
     		newValue = 1;
     	}
     	else {

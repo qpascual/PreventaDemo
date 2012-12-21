@@ -139,7 +139,10 @@ Ext.define('Preventa.view.CatalegClientPortrait', {
     								items: [
     									{
     										xtype: 'numberfield',
-    										value: 'Unidades',
+				    						minValue: 0,
+				    						maxValue: 9999,
+				    						label: 'Unidades',
+				    						labelWidth: '50%',
 				    						identifier: 'unitsTextField',
 				    						width: '98%',
 				    						height: '100%',
@@ -212,7 +215,10 @@ Ext.define('Preventa.view.CatalegClientPortrait', {
     				items: [
     					{
     						xtype: 'numberfield',
-		    				value: 'Precio',
+    						minValue: 0,
+    						maxValue: 9999,
+				    		label: 'Precio',
+				    		labelWidth: '50%',
 		    				height: '50%',
 		    				width: '50%',
 		    				identifier: 'priceTextField',
@@ -805,7 +811,7 @@ Ext.define('Preventa.view.CatalegClientPortrait', {
 	   			unidades = units;
 	   		}
 	   		else{
-	   			product.config._units = "Unidades";
+	   			product.config._units = null;
 	   			unidades = 0;
 	   		}
 	   		
@@ -814,7 +820,7 @@ Ext.define('Preventa.view.CatalegClientPortrait', {
 	   			precio = total_price;
 	   		}
 	   		else {
-	   			product.config._total_price = "Precio";
+	   			product.config._total_price = null;
 	   			precio = 0;
 	   		}
 	   		
