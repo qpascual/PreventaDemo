@@ -1,0 +1,139 @@
+
+.detailTransition
+{
+	width: 100%;
+	height: 0%;
+	position: absolute;
+	top: 0;
+	background: black;
+	transition: height 0.5s;
+	-moz-transition: height 0.5s; /* Firefox 4 */
+	-webkit-transition: height 0.5s; /* Safari and Chrome */
+	-o-transition: height 0.5s; /* Opera */
+	z-index: 15;
+	overflow: hidden;
+}
+
+.filterButtons
+{
+	width: 100%;
+	height: 7%;
+	position: absolute;
+	top: 38%;
+	z-index: 20;
+}
+
+.filterButtonsAnimationTop
+{
+	width: 100%;
+	height: 7%;
+	position: absolute;
+	top: 0%;
+	animation: filterTop 0.5s;	
+	-webkit-animation: filterTop 0.5s; 	
+}
+
+.filterButtonsAnimationDown
+{
+	width: 100%;
+	height: 7%;
+	position: absolute;
+	top: 38%;
+	animation: filterDown 0.5s;
+	-webkit-animation: filterDown 0.5s; 	
+}
+
+.carouselDown
+{
+	width: 100%;
+	height: 55%;
+	position: absolute;
+	top: 45%;
+	
+}
+
+.carouselTop
+{
+	width: 100%;
+	height: 93%;
+	position: absolute;
+	top: 7%;
+}
+
+.carouselTransitionTop
+{
+	width: 100%;
+	height: 93%;
+	position: absolute;
+	top: 7%;
+	animation: carouselTop 0.5s;
+	-webkit-animation: carouselTop 0.5s;
+}
+
+.carouselTransitionDown
+{
+	width: 100%;
+	height: 55%;
+	position: absolute;
+	top: 45%;
+	animation: carouselDown 0.5s;
+	-webkit-animation: carouselDown 0.5s;
+}
+
+/* Carousel Top */
+
+@keyframes carouselTop
+{
+	0% {left: 0%; top: 45%; height: 55%; width: 100%;}
+	100% {left: 0%; top: 7%; height: 93%; width: 100%;}
+}
+
+@-webkit-keyframes carouselTop
+{
+	0% {left: 0%; top: 45%; height: 55%; width: 100%;}
+	100% {left: 0%; top: 7%; height: 93%; width: 100%;}
+}
+
+/* Carousel Down */
+
+@keyframes carouselDown
+{
+	0% {left: 0%; top: 7%; height: 93%; width: 100%;}
+	100% {left: 0%; top: 45%; height: 55%; width: 100%;}
+}
+
+@-webkit-keyframes carouselDown
+{
+	0% {left: 0%; top: 7%; height: 93%; width: 100%;}
+	100% {left: 0%; top: 45%; height: 55%; width: 100%;}
+}
+
+
+/* Filter Top */
+
+@keyframes filterTop
+{
+	0%   {left: 0%; top: 38%;}
+	100%  {left: 0%; top: 0%;}
+}
+
+@-webkit-keyframes filterTop /* Safari and Chrome */
+{
+	0%   {left: 0%; top: 38%;}
+	100%  {left: 0%; top: 0%;}
+}
+
+
+/* Filter Down */
+
+@keyframes filterDown
+{
+	0%  {left: 0%; top: 0%;}
+	100%   {left: 0%; top: 38%;}
+}
+
+@-webkit-keyframes filterDown /* Safari and Chrome */
+{
+	0%  {left: 0%; top: 0%;}
+	100%   {left: 0%; top: 38%;}
+}
