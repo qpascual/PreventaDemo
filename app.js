@@ -74,8 +74,6 @@ Ext.application({
     
     loadCommands: function(){
     	var store = Ext.getStore('CommandsStore');
-    	store.removeAll(store.getRange());
-    	store.sync();
     	if(store.getCount() == 0){
     		var model;
 			model = new Preventa.model.CommandModel();
