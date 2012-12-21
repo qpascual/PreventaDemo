@@ -138,7 +138,7 @@ Ext.define('Preventa.view.CatalegClientPortrait', {
     								height: '50%',
     								items: [
     									{
-    										xtype: 'textfield',
+    										xtype: 'numberfield',
     										value: 'Unidades',
 				    						identifier: 'unitsTextField',
 				    						width: '98%',
@@ -211,7 +211,7 @@ Ext.define('Preventa.view.CatalegClientPortrait', {
     				},
     				items: [
     					{
-    						xtype: 'textfield',
+    						xtype: 'numberfield',
 		    				value: 'Precio',
 		    				height: '50%',
 		    				width: '50%',
