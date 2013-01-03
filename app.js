@@ -1,3 +1,4 @@
+
 //<debug>
 Ext.Loader.setPath({
     'Ext': 'touch/src',
@@ -45,7 +46,7 @@ Ext.application({
 		
 		var commands = this.loadCommands();
 		console.log("Load store 'commands' with : " + commands.getCount() + " values.");
-    	
+    
         var loginComercial = { xtype: 'LoginComercial' };
         var catalegCategories = {xtype: 'CatalegCategories'};
         var catalegProducts = {xtype: 'CatalegProductes'};
@@ -65,12 +66,36 @@ Ext.application({
         else {
         	if(window.innerHeight > window.innerWidth){
         		Ext.Viewport.add([catalegCategoriesPortrait, catalegClientPortrait, catalegCategories, catalegProducts, catalegProductesPortrait, loginComercial, detailProduct, escollirClient, catalegClient, infoClient, detailCommand, detailProductPortrait]);
+                this.download();
         	}
         	else {
         		Ext.Viewport.add([catalegCategories, catalegClientPortrait, catalegCategoriesPortrait, catalegProducts, catalegProductesPortrait, loginComercial, detailProduct, escollirClient, catalegClient, infoClient, detailCommand, detailProductPortrait]);
         	}
         }
     },
+                
+                download: function(){
+                console.log("download");
+                
+                var remoteFile = "http://i3.kym-cdn.com/entries/icons/original/000/000/080/doubt.jpg";
+                var localFileName = remoteFile.substring(remoteFile.lastIndexOf('/')+1);
+                
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+                                         console.log(fileSystem);
+                                         fileSystem.root.getDirectory("Images", {create: true, exclusive: true}, function(fileEntry){
+                                                                      alert("Create folder: " + fileEntry.fullPath);
+                                        }, this.fail);
+                                         fileSystem.root.getFile("Images/" + localFileName, {create: true, exclusive: true}, function(fileEntry){
+                                                                 var ft = new FileTransfer();
+                                                                 ft.download(remoteFile, fileEntry.fullPath, function(fe){ alert("Download complete !"); }, this.fail);
+                                        }, this.fail);
+                }, this.fail);
+                },
+                
+                fail: function(evt) {
+                console.log("fail");
+                alert("fail: " + evt.target.error.code);
+                },
     
     loadCommands: function(){
     	var store = Ext.getStore('CommandsStore');
