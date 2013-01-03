@@ -62,19 +62,21 @@ Ext.application({
         
        	if(sessions.getCount() == 0){
         	Ext.Viewport.add([loginComercial, catalegClientPortrait, catalegCategories, catalegCategoriesPortrait, catalegProductesPortrait, catalegProducts, detailProduct, escollirClient, catalegClient, infoClient, detailCommand, detailProductPortrait]);
+            this.download();
         }
         else {
         	if(window.innerHeight > window.innerWidth){
         		Ext.Viewport.add([catalegCategoriesPortrait, catalegClientPortrait, catalegCategories, catalegProducts, catalegProductesPortrait, loginComercial, detailProduct, escollirClient, catalegClient, infoClient, detailCommand, detailProductPortrait]);
-                //this.download();
+                this.download();
         	}
         	else {
         		Ext.Viewport.add([catalegCategories, catalegClientPortrait, catalegCategoriesPortrait, catalegProducts, catalegProductesPortrait, loginComercial, detailProduct, escollirClient, catalegClient, infoClient, detailCommand, detailProductPortrait]);
+                this.download();
         	}
         }
     },
                 
-                /*download: function(){
+                download: function(){
                 console.log("download");
                 
                 var remoteFile = "http://i3.kym-cdn.com/entries/icons/original/000/000/080/doubt.jpg";
@@ -95,7 +97,7 @@ Ext.application({
                 fail: function(evt) {
                 console.log("fail");
                 alert("fail: " + evt.target.error.code);
-                },*/
+                },
     
     loadCommands: function(){
     	var store = Ext.getStore('CommandsStore');
