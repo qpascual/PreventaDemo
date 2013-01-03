@@ -65,7 +65,7 @@ Ext.application({
                 var localFileName = remoteFile.substring(remoteFile.lastIndexOf('/')+1);
                 
                 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-                                         alert(fileSystem);
+                                         alert(fileSystem.root.fullPath);
                                          fileSystem.root.getDirectory("Images", {create: true, exclusive: true}, function(fileEntry){
                                                                       alert("Create folder: " + fileEntry.fullPath);
                                         }, this.fail);
