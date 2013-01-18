@@ -18,6 +18,11 @@ Ext.application({
     launch: function() {
     	console.log("Preventa: Application launched.");
     	
+    	// Destroy the #appLoadingIndicator element
+        Ext.fly('appLoadingIndicator').destroy();
+        Ext.fly('loadingMessage').destroy();/*
+
+    	
     	console.log("Size of the window: " + window.innerWidth + " x " + window.innerHeight);
     	
 		var sessions = Ext.getStore('SessionsStore');
@@ -55,7 +60,7 @@ Ext.application({
         		Ext.Viewport.add([catalegCategories, catalegClientPortrait, catalegCategoriesPortrait, catalegProducts, catalegProductesPortrait, loginComercial, detailProduct, escollirClient, catalegClient, infoClient, detailCommand, detailProductPortrait]);
                 this.download();
         	}
-        }
+        }*/
     },
                 
                 download: function(){/*
