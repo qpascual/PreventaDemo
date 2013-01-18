@@ -5,6 +5,16 @@ Ext.define('Preventa.view.CatalegClient', {
     id: 'CatalegClient',
     fullscreen: true,
     
+    requires: [
+    	'Ext.Toolbar',
+    	'Ext.carousel.Carousel',
+    	'Ext.Panel',
+    	'Ext.Img',
+    	'Ext.Label',
+    	'Ext.field.Number',
+    	'Ext.tab.Panel'
+    ],
+    
     initialize: function(){
     	console.log("Initialize view CatalegClient");	
     },

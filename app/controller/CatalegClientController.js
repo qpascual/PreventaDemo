@@ -164,30 +164,6 @@ Ext.define("Preventa.controller.CatalegClientController", {
         }
     },
     
-    download: function() {
-        var remoteFile = "http://i3.kym-cdn.com/entries/icons/original/000/000/080/doubt.jpg";
-        var localFileName = remoteFile.substring(remoteFile.lastIndexOf('/')+1);
-        
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-            fileSystem.root.getFile(localFileName, {create: true, exclusive: false}, function(fileEntry) {
-                var localPath = fileEntry.fullPath;
-                console.log("LocalPath: " + localPath);
-                
-                /*if (device.platform === "Android" && localPath.indexOf("file://") === 0) {
-                    localPath = localPath.substring(7);
-                }
-                var ft = new FileTransfer();
-                ft.download(remoteFile,
-                    localPath, function(entry) {
-                        var dwnldImg = document.getElementById("dwnldImg");
-                        dwnldImg.src = entry.fullPath;
-                        dwnldImg.style.visibility = "visible";
-                        dwnldImg.style.display = "block";
-                    }, fail);*/
-            }, fail);
-        }, fail);
-    },
-    
     onBackToCatalegClient: function(){
     	var catalegP = this.getCatalegClientPortrait();
     	var cataleg = this.getCatalegClient();
@@ -296,7 +272,6 @@ Ext.define("Preventa.controller.CatalegClientController", {
     
     onRemoveUnitButtonTap: function() {
     	var units = this.getUnitsTextField();
-    	this.download();
     	var newValue;
     	if(units.getValue() != 'Unidades'){
     		if(parseInt(units.getValue()) == 1){

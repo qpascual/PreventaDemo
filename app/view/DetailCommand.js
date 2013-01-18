@@ -5,6 +5,10 @@ Ext.define('Preventa.view.DetailCommand', {
     id: 'DetailCommand',
     fullscreen: true,
     
+    requires: [
+    	'Ext.dataview.List'
+    ],
+    
     initialize: function(){
     	console.log("Initialize view: DetailCommand");
     	

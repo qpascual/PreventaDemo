@@ -4,6 +4,14 @@ Ext.define('Preventa.view.CatalegCategories', {
     xtype: 'CatalegCategories',
     id: 'CatalegCategories',
     fullscreen: true,
+    require: [
+    	'Ext.Toolbar',
+    	'Ext.Button',
+    	'Ext.carousel.Carousel',
+    	'Ext.Panel',
+    	'Ext.Img',
+    	'Ext.Label'
+    ],
     
     initialize: function(){
     	console.log("Initialize view: CatalegCategories");

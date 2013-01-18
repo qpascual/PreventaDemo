@@ -58,27 +58,39 @@ Ext.application({
         }
     },
                 
-                download: function(){
+                download: function(){/*
                 console.log("download");
                 
-                var remoteFile = "http://i3.kym-cdn.com/entries/icons/original/000/000/080/doubt.jpg";
-                var localFileName = remoteFile.substring(remoteFile.lastIndexOf('/')+1);
+                var files = [];
+                for(var x = 0; x < 20; x++){
+                    var file = "http://www.clubmoto1.com/sites/default/files/46rossi_testvalencia-28298_original.jpeg";
+                files.push(file);
                 
+                var file2 ="http://warm-up-lap.com/wp-content/uploads/2012/12/rossi-yamaha.jpg";
+                files.push(file2);
+                }
+                
+                for(var i = 0; i < files.length; i++){
+                
+                var remoteFile = files[i];
+                var localFileName = i + files[i].substring(remoteFile.lastIndexOf('.'));
                 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-                                         alert(fileSystem.root.fullPath);
                                          fileSystem.root.getDirectory("Images", {create: true, exclusive: true}, function(fileEntry){
-                                                                      alert("Create folder: " + fileEntry.fullPath);
+                                                                      console.log("Create folder: " + fileEntry.fullPath);
                                         }, this.fail);
                                          fileSystem.root.getFile("Images/" + localFileName, {create: true, exclusive: true}, function(fileEntry){
                                                                  var ft = new FileTransfer();
-                                                                 ft.download(remoteFile, fileEntry.fullPath, function(fe){ alert("Download complete !"); }, this.fail);
+                                                                 ft.download(remoteFile, fileEntry.fullPath, function(fe){ console.log("Download complete !"); }, this.fail);
                                         }, this.fail);
+                                         
                 }, this.fail);
+                }*/
                 },
+                
                 
                 fail: function(evt) {
                 console.log("fail");
-                alert("fail: " + evt.target.error.code);
+                console.log("fail: " + evt.target.error.code);
                 },
     
     loadCommands: function(){

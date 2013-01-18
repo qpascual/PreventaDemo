@@ -91,6 +91,8 @@ define("cordova", function(require, exports, module) {
 
 
 var channel = require('cordova/channel');
+console.log("cordova");
+console.log(channel);
 
 /**
  * Listen for DOMContentLoaded and notify our channel subscribers.

@@ -5,6 +5,11 @@ Ext.define('Preventa.view.InfoClient', {
     id: 'InfoClient',
     fullscreen: true,
     
+    requires: [
+    	'Ext.form.FieldSet',
+    	'Ext.dataview.List'
+    ],
+    
     initialize: function(){
     	console.log("Initialize view: InfoClient");
     	

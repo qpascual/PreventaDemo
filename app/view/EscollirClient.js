@@ -5,6 +5,10 @@ Ext.define('Preventa.view.EscollirClient', {
     id: 'EscollirClient',
     fullscreen: true,
     
+    requires: [
+    	'Ext.dataview.List'
+    ],
+    
     initialize: function(){
     	console.log("Initialize view EscollirClient");
     	

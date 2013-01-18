@@ -64,6 +64,7 @@ Ext.define("Preventa.controller.SessionsController", {
 	    }
     	
 	    Ext.Viewport.animateActiveItem(cataleg, this.flipTransition);
+         
     },
     
     /**
@@ -90,6 +91,59 @@ Ext.define("Preventa.controller.SessionsController", {
     		return false;
     		//Ext.Msg.alert('ERROR', 'Nombre de usuario incorrecto.', Ext.emptyFn);
     	}
+    },
+    
+    sync: function(){
+    	var progressBar = Ext.create('Preventa.ui.ProgressBar');
+       	progressBar.show();
+       	
+       	this.createImageFolder();
+       	var files = [];
+        
+        for(var x = 0; x < 1040; x++){
+        	var file = "http://www.clubmoto1.com/sites/default/files/46rossi_testvalencia-28298_original.jpeg";
+            files.push(file);
+                
+            var file2 ="http://warm-up-lap.com/wp-content/uploads/2012/12/rossi-yamaha.jpg";
+       	    files.push(file2);
+        }
+        
+        var increment = 100 / files.length;
+        
+        for(var i = 0; i < files.length; i++){
+        	this.downloadFile(files[i], i, progressBar, increment);
+        }
+    },
+    
+    createImageFolder: function(){
+    	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+            fileSystem.root.getDirectory("Images", {create: true, exclusive: false}, function(fileEntry) {
+                console.log("Create folder: " + fileEntry.fullPath);
+            }, this.fail);
+        }, this.fail);
+    },
+    
+    downloadFile: function(remoteFile, index, progressBar, increment) {
+        var localFileName = index + remoteFile.substring(remoteFile.lastIndexOf('.'));
+        
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+            fileSystem.root.getFile("Images/" + localFileName, {create: true, exclusive: false}, function(fileEntry) {
+                var localPath = fileEntry.fullPath;
+                
+                var ft = new FileTransfer();
+                ft.download(remoteFile, localPath, function(entry) {
+                        console.log("Downloaded file !");
+                        
+                        var percentatge = progressBar.getProgressValue();
+			        	percentatge += increment;
+			        	progressBar.setProgressValue(percentatge);
+                    }, this.fail);
+            }, this.fail);
+        }, this.fail);
+    },
+    
+    fail: function(error) {
+        console.log(error.code);
     },
     
     launch: function() {

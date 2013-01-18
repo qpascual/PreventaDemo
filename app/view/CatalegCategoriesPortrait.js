@@ -5,6 +5,14 @@ Ext.define('Preventa.view.CatalegCategoriesPortrait', {
     id: 'CatalegCategoriesPortrait',
     fullscreen: true,
     
+    requires: [
+    	'Ext.Toolbar',
+    	'Ext.carousel.Carousel',
+    	'Ext.Panel',
+    	'Ext.Img',
+    	'Ext.Label'
+    ],
+    
     initialize: function(){
     	console.log("Initialize view: CatalegCategoriesPortrait");
     	

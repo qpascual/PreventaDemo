@@ -5,6 +5,11 @@ Ext.define('Preventa.view.DetailProductPortrait', {
     id: 'DetailProductPortrait',
     fullscreen: true,
     
+    requires: [
+    	'Ext.form.FieldSet',
+    	'Ext.field.Select'
+    ],
+    
     initialize: function(){
     	console.log("Initialize view: DetailProduct");
     	

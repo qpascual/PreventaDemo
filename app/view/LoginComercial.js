@@ -5,6 +5,13 @@ Ext.define('Preventa.view.LoginComercial', {
     id: 'LoginComercial',
     fullscreen: true,
     
+    requires: [
+    	'Ext.Toolbar',
+    	'Ext.form.FieldSet',
+    	'Ext.field.Text',
+    	'Ext.field.Password'
+    ],
+    
     initialize: function(){
     	console.log("Initialize view: LoginComercial");
     },
@@ -22,6 +29,15 @@ Ext.define('Preventa.view.LoginComercial', {
                 left: '12.5%',
                 width: '75%',
                 items: [
+                	{
+                		xtype: 'label',
+                		html: 'Demo: '
+                	},
+                	{
+                		xtype: 'label',
+                		html: 'user: comercial1 / password: comercial1',
+                		margin: '0 0 20 0'
+                	},
                     {
                     	//Fieldset on aniran els dos "textfield", el del nom d'usuari i el de la contrasenya.
                         xtype: 'fieldset',
